@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+
+<div class="card shadow-lg">
+
+<div class="card-body">
+
+<h2>
+
+👤 Welcome {{ request.user.username }}
+
+</h2>
+
+<hr>
+
+<p>
+
+<strong>Email:</strong>
+
+{{ request.user.email }}
+
+</p>
+
+<p>
+
+<strong>Username:</strong>
+
+{{ request.user.username }}
+
+</p>
+
+<a href="/dashboard/" class="btn btn-primary">
+
+Dashboard
+
+</a>
+
+<a href="/logout/" class="btn btn-danger">
+
+Logout
+
+</a>
+
+</div>
+
+</div>
+
+{% endblock %}

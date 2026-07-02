@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-4">
+
+📊 Dashboard
+
+</h2>
+
+<div class="row">
+
+<div class="col-md-3">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h5>Total Interviews</h5>
+
+<h2>{{ total_interviews }}</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h5>Average Score</h5>
+
+<h2>{{ average_score }}/10</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h5>Best Category</h5>
+
+<h2>{{ best_category }}</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h5>Completed</h5>
+<a href="/report/" class="btn btn-success mt-4">
+    📄 Download Interview Report (PDF)
+</a>
+
+<h2>{{ total_interviews }}</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="card shadow mt-4">
+
+<div class="card-body">
+
+<canvas id="scoreChart"></canvas>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const ctx=document.getElementById("scoreChart");
+
+new Chart(ctx,{
+
+type:"bar",
+
+data:{
+
+labels:["Total","Average"],
+
+datasets:[{
+
+label:"Performance",
+
+data:[{ total_interviews },{average_score }]
+
+}]
+
+}
+
+});
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Interview Chatbot</title>
+</head>
+<body>
+
+<h1>🤖 AI Interview</h1>
+
+<h3>Question:</h3>
+
+<p>{{ question }}</p>
+
+<form method="GET">
+
+    <label>Select Interview Category:</label>
+
+    <select name="category">
+
+        <option value="Python">Python</option>
+        <option value="Django">Django</option>
+        <option value="SQL">SQL</option>
+        <option value="AWS">AWS</option>
+        <option value="HR">HR</option>
+        <option value="AI">AI</option>
+
+    </select>
+
+    <button type="submit">Start Interview</button>
+
+</form>
+
+<hr>
+
+<h3>{{ category }} Interview Question</h3>
+
+<p>{{ question }}</p>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <textarea
+        name="answer"
+        rows="8"
+        cols="80"
+        placeholder="Write your answer..."
+    ></textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Submit Answer
+    </button>
+
+</form>
+
+{% if result %}
+
+<hr>
+
+<h2>Evaluation</h2>
+
+<pre>
+
+{{ result }}
+
+</pre>
+
+{% endif %}
+
+</body>
+</html>

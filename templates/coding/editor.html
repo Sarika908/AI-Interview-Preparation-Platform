@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Python Coding Test</title>
+
+</head>
+
+<body>
+
+<h1>Python Coding Assessment</h1>
+
+<hr>
+
+<h3>Question</h3>
+
+<pre>{{ question }}</pre>
+
+<form method="POST">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button type="submit">
+
+Run Code
+
+</button>
+
+</form>
+
+<hr>
+
+<h2>Output</h2>
+
+<pre>{{ result }}</pre>
+
+<p>
+
+Execution Time:
+
+{{ runtime }}
+
+seconds
+
+</p>
+
+</body>
+</html>

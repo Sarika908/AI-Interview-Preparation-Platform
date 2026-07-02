@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MCQ Quiz</title>
+</head>
+<body>
+
+<h1>Technical MCQ Quiz</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+{% for q in questions %}
+
+<hr>
+
+<h3>{{ forloop.counter }}. {{ q.question }}</h3>
+
+<label>
+<input type="radio" name="{{ q.id }}" value="{{ q.option1 }}">
+{{ q.option1 }}
+</label><br>
+
+<label>
+<input type="radio" name="{{ q.id }}" value="{{ q.option2 }}">
+{{ q.option2 }}
+</label><br>
+
+<label>
+<input type="radio" name="{{ q.id }}" value="{{ q.option3 }}">
+{{ q.option3 }}
+</label><br>
+
+<label>
+<input type="radio" name="{{ q.id }}" value="{{ q.option4 }}">
+{{ q.option4 }}
+</label><br>
+
+{% endfor %}
+
+<br>
+
+<button type="submit">
+Submit Quiz
+</button>
+
+</form>
+
+{% if score is not None %}
+
+<hr>
+
+<h2>Your Score: {{ score }}/{{ questions|length }}</h2>
+
+{% endif %}
+
+</body>
+</html>
